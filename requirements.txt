@@ -5,4 +5,4 @@ ipykernel
 matplotlib
 scikit-learn
 xgboost
-# -e .
+-e .
