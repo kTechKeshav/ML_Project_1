@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Indicator</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            max-height: 100vh;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #232526 0%, #1a1a2e 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .glass-container {
+            background: rgba(30, 30, 40, 0.7);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0,255,255,0.2);
+            padding: 28px 18px;
+            max-width: 480px;
+            width: 96vw;
+            max-height: 92vh;
+            min-height: 340px;
+            overflow: auto;
+            animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #00fff7;
+            text-shadow: 0 0 8px #00fff7, 0 0 24px #00fff7;
+            letter-spacing: 2px;
+            animation: neonGlow 2s infinite alternate;
+        }
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 8px #00fff7, 0 0 24px #00fff7; }
+            to { text-shadow: 0 0 24px #00fff7, 0 0 48px #00fff7; }
+        }
+        .desc {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+            margin-bottom: 18px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .btn-neon {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 24px;
+            font-size: 1rem;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #00fff7;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 8px #00fff7, 0 0 24px #00fff7;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+            text-shadow: 0 0 8px #00fff7;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .btn-neon:hover {
+            background: #00fff7;
+            color: #232526;
+            box-shadow: 0 0 24px #00fff7, 0 0 48px #00fff7;
+            transform: scale(1.05);
+        }
+        ul {
+            margin: 12px 0 0 18px;
+            padding: 0 0 0 18px;
+            color: #00fff7;
+            font-size: 0.97rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 600px) {
+            .glass-container {
+                padding: 12px 2vw;
+                max-width: 99vw;
+                min-height: 0;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .desc, ul {
+                font-size: 0.93rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Student Exam Performance Indicator</h1>
+        <div class="desc">
+            <p>
+                <b>Welcome!</b> This project is a Machine Learning-powered web application that predicts a student's <span style="color:#00fff7;">Math Score</span> based on their demographic and academic information.
+            </p>
+            <ul>
+                <li>Input student details such as gender, ethnicity, parental education, lunch type, test preparation, and reading/writing scores.</li>
+                <li>Get an instant prediction of the expected math score using advanced regression models.</li>
+                <li>Built with Flask, Scikit-learn, and a beautiful glassmorphism UI with neon highlights.</li>
+            </ul>
+            <p style="margin-top:12px;">Try it out by clicking the button below!</p>
+        </div>
+        <a href="{{ url_for('predict_datapoint') }}">
+            <button class="btn-neon">Predict Now</button>
+        </a>
+    </div>
+</body>
+</html>
